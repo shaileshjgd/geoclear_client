@@ -35,7 +35,7 @@ It is a typed TypeScript wrapper that lets consumers of the GeoClear API get:
 geoclear_client/
 ├── src/
 │   ├── index.ts          ← re-exports hc + all named types
-│   └── openapi-app.ts    ← COPY of src/api/openapi-app.ts from private repo
+│   └── openapi-app.ts    ← source of truth for all client types (edit here directly)
 ├── dist/                 ← built output (gitignored, built by tsup)
 ├── tsup.config.ts        ← ESM + CJS + .d.ts build
 ├── tsconfig.json         ← standalone, no monorepo extends
@@ -48,16 +48,20 @@ geoclear_client/
 
 ## SOURCE OF TRUTH
 
-`src/openapi-app.ts` is a **copy** of `src/api/openapi-app.ts` from the private `sriharkaur/geoclear` repo.
+**`src/openapi-app.ts` is edited directly in this repo.** This is the source of truth for all client types.
 
-**The private repo owns the source. This file is always a copy — never edit it directly here.**
+The private `sriharkaur/geoclear` repo has a parallel `src/api/openapi-app.ts` used for server-side OpenAPI spec generation. When the two need to stay in sync (e.g. after adding a new endpoint), copy from here to there:
+```bash
+cp ~/Projects/geoclear_client/src/openapi-app.ts ~/Projects/geoclear/src/api/openapi-app.ts
+```
 
-When the private API changes:
-1. The private repo's `src/api/openapi-app.ts` is updated first
-2. That file is copied here: `cp ../geoclear/src/api/openapi-app.ts src/openapi-app.ts`
-3. Version is bumped in `package.json`
-4. Build verified: `npm run build`
-5. Tagged and pushed — GitHub Actions publishes to npm (requires user approval)
+When releasing a new version:
+1. Edit `src/openapi-app.ts` here directly
+2. Bump version in `package.json`
+3. `npm run build` — verify it compiles
+4. `git add -A && git commit -m "feat: vX.Y.Z — description"`
+5. `git tag vX.Y.Z && git push --tags` → GitHub Actions publishes to npm
+   ⚠️ **Step 5 requires user approval — ask before pushing tags**
 
 ---
 
