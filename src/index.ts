@@ -27,4 +27,4 @@ export type {
   MeResponse,
   HealthResponse,
   CoverageResponse,
-} from '../../../src/api/openapi-app.js';
+} from './openapi-app.js';
