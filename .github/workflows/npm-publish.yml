@@ -1,0 +1,30 @@
+name: Publish @geoclear/client
+
+on:
+  push:
+    tags:
+      - 'v*'   # trigger: git tag v1.0.1 && git push --tags
+  workflow_dispatch:    # also triggerable manually from GitHub Actions UI
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for npm Trusted Publishing (OIDC)
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm (Trusted Publishing)
+        run: npm publish --access public --provenance
