@@ -1,6 +1,8 @@
 # @geoclear/client
 
-Typed TypeScript client for the [GeoClear API](https://geoclear.io) — full autocomplete on every endpoint, request param, and response field.
+Typed TypeScript client for [GeoClear](https://geoclear.io) — **address intelligence built for the agents that call it**. 198M US locations, 15+ fields per call, MCP-native, with optional per-decision USDC payment via x402 on Base. For humans writing code and for software that buys without asking one.
+
+Full autocomplete on every endpoint, request param, and response field.
 
 ## Install
 

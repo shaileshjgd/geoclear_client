@@ -1,7 +1,7 @@
 {
   "name": "@geoclear/client",
-  "version": "2.0.0",
-  "description": "Typed TypeScript client for the GeoClear API — full autocomplete on every endpoint, request param, and response field.",
+  "version": "2.0.1",
+  "description": "Typed TypeScript client for GeoClear — address intelligence built for the agents that call it. 198M US locations, 15+ fields per call, MCP-native, optional per-decision USDC payment via x402 on Base.",
   "homepage": "https://geoclear.io",
   "repository": {
     "type": "git",
