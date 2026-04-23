@@ -4,6 +4,18 @@ Typed TypeScript client for [GeoClear](https://geoclear.io) — **address intell
 
 Full autocomplete on every endpoint, request param, and response field.
 
+## See it in action
+
+<p align="center">
+  <img src="https://geoclear.io/assets/curl-15s.svg"
+       alt="GeoClear API returning a verified Washington DC address with flood zone, risk scores, drone deliverability, and a cryptographically signed receipt, in 15 seconds."
+       width="720" />
+</p>
+
+One call. Verified address, compliance fields, risk scores, drone reachability, and a cryptographically signed receipt — all in the same JSON body. Every response carries an `X-GeoClear-Receipt` header you can verify offline with [`@geoclear/verify-receipt`](https://www.npmjs.com/package/@geoclear/verify-receipt).
+
+> The animation above renders on GitHub + most markdown viewers. If you're reading this on npmjs.com and see a static frame, try the live demo at [geoclear.io](https://geoclear.io) — click "Search" in the Live demo card.
+
 ## Install
 
 ```bash
