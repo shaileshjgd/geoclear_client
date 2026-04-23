@@ -20,7 +20,9 @@ type SecurityReq = { [key: string]: string[] }[];
 const Err = z.object({ ok: z.boolean(), error: z.string() }).openapi('Error');
 
 const AddressResult = z.object({
-  nad_uuid:     z.string().openapi({ example: 'a1b2c3d4-0000-0000-0000-000000000000' }),
+  address_id:   z.string().openapi({ example: 'a1b2c3d4-0000-0000-0000-000000000000', description: 'Stable address record identifier (UUID)' }),
+  authority:    z.string().nullish().openapi({ example: 'DCRA', description: 'Authoritative source that recorded the address' }),
+  updated_at:   z.string().nullish().openapi({ example: '2024-12-31T12:40:45Z', description: 'ISO-8601 UTC timestamp of last record update' }),
   full_address: z.string().openapi({ example: '1600 PENNSYLVANIA AVE NW, WASHINGTON, DC 20500' }),
   add_number:   z.string().openapi({ example: '1600' }),
   st_name:      z.string().openapi({ example: 'PENNSYLVANIA AVE NW' }),
@@ -85,7 +87,7 @@ const FloodData = z.object({
 }).openapi('FloodData');
 
 const RiskResult = z.object({
-  ok: z.boolean(), nad_uuid: z.string().nullish(), address: z.string().nullish(),
+  ok: z.boolean(), address_id: z.string().nullish(), address: z.string().nullish(),
   latitude: z.number().nullish(), longitude: z.number().nullish(),
   flood: FloodData.nullish(),
   wildfire:   z.object({ risk_class: z.string().nullish(), score: z.number().nullish(), percentile: z.number().nullish() }).nullish(),
@@ -144,7 +146,7 @@ const PointQuery = z.object({
 const RiskQuery = z.object({
   street: z.string().optional(), city: z.string().optional(),
   state: z.string().optional(), zip: z.string().optional(),
-  nad_uuid: z.string().optional(),
+  address_id: z.string().optional(),
 });
 
 // ── App ───────────────────────────────────────────────────────────

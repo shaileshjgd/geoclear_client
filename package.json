@@ -1,6 +1,6 @@
 {
   "name": "@geoclear/client",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Typed TypeScript client for the GeoClear API — full autocomplete on every endpoint, request param, and response field.",
   "homepage": "https://geoclear.io",
   "repository": {
