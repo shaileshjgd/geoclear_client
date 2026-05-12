@@ -1,7 +1,7 @@
 # @geoclear/client — Claude Code Project Instructions
 
 > **Public npm package** — Typed TypeScript client for the GeoClear API.
-> Repo: `shaileshjgd/geoclear_client` (PUBLIC — no secrets, no business logic)
+> Repo: `geoclear-io/client` (PUBLIC — no secrets, no business logic) — transferred from `shaileshjgd/geoclear_client` 2026-05-12 per Q-1221
 > npm: `@geoclear/client` | org: `@geoclear` on npmjs.com
 
 ---

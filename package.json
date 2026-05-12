@@ -1,11 +1,11 @@
 {
   "name": "@geoclear/client",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Typed TypeScript client for GeoClear — address intelligence built for the agents that call it. 198M US locations, 15+ fields per call, MCP-native, optional per-decision USDC payment via x402 on Base.",
   "homepage": "https://geoclear.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shaileshjgd/geoclear_client"
+    "url": "https://github.com/geoclear-io/client"
   },
   "license": "MIT",
   "type": "module",
